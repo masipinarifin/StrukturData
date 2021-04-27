@@ -42,7 +42,7 @@ public class LinkedList {
             //else tarverse till the last node
             //and insert the new node there
             Node last = list.head;
-            while(last.head != null){
+            while(last.next != null){
                 last = last.next;
             }
             //insert the new_node at last node
@@ -71,7 +71,7 @@ public class LinkedList {
     
     
     //Method to delete a node in the LinkedList by KEY
-    public static LinkedList deleteKey(LinkedList list, int key)
+    public static LinkedList deleteByKey(LinkedList list, int key)
     {
         //Store a head Node
         Node currNode = list.head, prev = null;
@@ -115,4 +115,123 @@ public class LinkedList {
         return list;
     }
     
+    //***************** DELETION AT A POSITION ***********************
+    // Method to delete a ode in the LinkedList by POSTION
+    public static LinkedList
+    deleteAtPosition(LinkedList list, int index)
+    {
+        //Store head node
+        Node currNode = list.head, prev = null;
+        //
+        //CASE 1
+        //if index is 0, then head node itself is to be
+        //deleted
+        if(index == 0 && currNode != null){
+            list.head = currNode.next; //Changed head
+            //Display the message
+            System.out.println(
+                index + " position element deleted ");
+            //Return the updated List
+            return list;
+        }
+        //
+        //CASE 2:
+        //if the index is greater than 0 but less than the
+        //size of LinkedList
+        //
+        //The Counter
+        int counter = 0;
+        //count for the index to be deleted
+        //keep track of the previous node
+        //as it is needed to change currNode.next
+        while(currNode != null){
+            
+            if (counter == index){
+                //Since the currNode is the required
+                //position Unlink currNode from linked list
+                prev.next = currNode.next;
+                //Display the message
+                System.out.println(
+                    index + " position element deleted");
+                break;
+            }
+            else{
+                //if current position is not the index
+                //continue to next node
+                prev = currNode;
+                currNode = currNode.next;
+                counter++;
+            }
+        }
+        //If the position element was found, it should be
+        //at currNode Therefore the currNode shall not be
+        //null
+        //
+        //CASE 3: The index is greater than else of the
+        //LinkedList
+        //
+        //In this case, the currNode should be null
+        if(currNode == null){
+            //Display the message
+            System.out.println(
+                index + " position element not found");
+        }
+        //return the list
+        return list;
+    }
+    //***************** MATH METHOD ********************
+    //method to create a singly linked list with n nodes
+    public static void main(String[] args)
+    {
+        // Start with the empty list
+        LinkedList list = new LinkedList();
+        //
+        // ************ INSERTION **********
+        //
+        // insert the values
+        list = insert(list, 1);
+        list = insert(list, 2);
+        list = insert(list, 3);
+        list = insert(list, 4);
+        list = insert(list, 5);
+        list = insert(list, 6);
+        list = insert(list, 7);
+        list = insert(list, 8);
+        //print the LinkedList
+        printList(list);
+        //**********DELETION BY KEY ***********
+        //Delete node with value
+        //int this case the key is **at head**
+        deleteByKey(list, 1);
+        //print the LinkedList
+        printList(list);
+        //Delete node with value 4
+        //in the this case the key is present ***in the
+        //middle**
+        deleteByKey(list, 4);
+        //print theLinkedList
+        printList(list);
+        //Delete node with value 10
+        //In this case the key is ***not present***
+        deleteByKey(list, 10);
+        //print the LinkedList
+        printList(list);
+        //*****DELETION AT POSITION****
+        //Delete node at position 0
+        //In this case the key is **at head***
+        deleteAtPosition(list, 0);
+        //Print the LinkedList
+        printList(list);
+        //Delete node at position 2
+        //in this case the key is present *** in the
+        //middle***
+        deleteAtPosition(list, 2);
+        //print the LinkedList
+        printList(list);
+        //Delete node at position 10
+        //In this case the key is ***not present***
+        deleteAtPosition(list, 10);
+        //Print the LinkedList
+        printList(list);
+    }
 }
