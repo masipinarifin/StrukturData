@@ -66,7 +66,7 @@ public class Main {
             System.out.println("Array ini beda");
         }
         
-       System.out.println(Arrays.compare(arrayAngka6, arrayAngka7));
+       //System.out.println(Arrays.compare(arrayAngka6, arrayAngka7));
         
         
         
