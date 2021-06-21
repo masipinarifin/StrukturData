@@ -8,9 +8,9 @@ package Praktikum11;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class LinkedQueue<T> implements Queue<T> {
+public class LinkedQueue<T> implements QueueInterface<T> {
 
-    private LinkedList<T> qlist = null;
+    private Queue<T> qlist = null;
 
     public LinkedQueue() {
         qlist = new LinkedList<T>();
@@ -27,17 +27,17 @@ public class LinkedQueue<T> implements Queue<T> {
 
     @Override
     public T peek() {
-        return qlist.getFirst();
+        return qlist.peek();
     }
 
     @Override
     public T pop() {
-        return qlist.pop();
+        return qlist.poll();
     }
 
     @Override
     public void push(T item) {
-        qlist.push(item);
+        qlist.add(item);
     }
 
     @Override

@@ -2,13 +2,14 @@ package Praktikum11;
 
 /**
  *
- * @author PC
+ * NURUL ARIFIN 19MI0016
  */
-public class Main2 {
+import java.util.NoSuchElementException;
+public class Main_ArrQueue_BQueue {
 
     public static void main(String[] args) {
         try {
-            ArrQueue<Integer> arr = new ArrQueue<Integer>(5);
+            ArrQueue<Integer> arr = new ArrQueue<Integer>(51);
             arr.push(1);
             arr.push(4);
             arr.push(10);
@@ -19,7 +20,7 @@ public class Main2 {
             arr.push(17);
             arr.push(3);
             arr.push(27);
-        } catch (NoSuchElementExceptions e) {
+        } catch (NoSuchElementException e) {
             System.out.println(e.getMessage());
         }
     }
